@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Sequelize"
+run/main_scene="res://UI/MainScreen.tscn"
+boot_splash/image="res://Assets/files.png"
+config/icon="res://Assets/files.png"
+
+[display]
+
+window/size/width=512
+window/size/height=512
+
+[rendering]
+
+environment/default_clear_color=Color( 0.141176, 0.231373, 0.290196, 1 )
+environment/default_environment="res://default_env.tres"
