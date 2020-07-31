@@ -20,10 +20,9 @@ run/main_scene="res://UI/MainScreen.tscn"
 boot_splash/image="res://Assets/files.png"
 config/icon="res://Assets/files.png"
 
-[display]
+[locale]
 
-window/size/width=512
-window/size/height=512
+translations=PoolStringArray( "res://i18n/texts.en.translation", "res://i18n/texts.fr.translation" )
 
 [rendering]
 

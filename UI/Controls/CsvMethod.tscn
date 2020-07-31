@@ -12,7 +12,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="File" type="VBoxContainer" parent="."]
+[node name="FILE_TAB_LABEL" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -20,49 +20,49 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="MarginContainer" type="MarginContainer" parent="File"]
-margin_right = 504.0
-margin_bottom = 476.0
+[node name="MarginContainer" type="MarginContainer" parent="FILE_TAB_LABEL"]
+margin_right = 1016.0
+margin_bottom = 564.0
 size_flags_vertical = 3
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="File/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FILE_TAB_LABEL/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 494.0
-margin_bottom = 466.0
+margin_right = 1006.0
+margin_bottom = 554.0
 custom_constants/separation = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="File/MarginContainer/VBoxContainer"]
-margin_right = 484.0
+[node name="HBoxContainer" type="HBoxContainer" parent="FILE_TAB_LABEL/MarginContainer/VBoxContainer"]
+margin_right = 996.0
 margin_bottom = 24.0
 custom_constants/separation = 10
 
-[node name="FileNameLabel" type="LineEdit" parent="File/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 403.0
+[node name="FileNameLabel" type="LineEdit" parent="FILE_TAB_LABEL/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 859.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 editable = false
-placeholder_text = "Filepath"
+placeholder_text = "FILEPATH_HINT"
 
-[node name="BrowseButton" type="Button" parent="File/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 413.0
-margin_right = 484.0
+[node name="BrowseButton" type="Button" parent="FILE_TAB_LABEL/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 869.0
+margin_right = 996.0
 margin_bottom = 24.0
-text = "Browse..."
+text = "BROWSE_BUTTON"
 
-[node name="Tree" type="Tree" parent="File/MarginContainer/VBoxContainer"]
+[node name="Tree" type="Tree" parent="FILE_TAB_LABEL/MarginContainer/VBoxContainer"]
 margin_top = 34.0
-margin_right = 484.0
-margin_bottom = 456.0
+margin_right = 996.0
+margin_bottom = 544.0
 size_flags_vertical = 3
 hide_folding = true
 select_mode = 1
 
-[node name="Text" type="MarginContainer" parent="."]
+[node name="TEXT_TAB_LABEL" type="MarginContainer" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -75,9 +75,9 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="Textbox" type="TextEdit" parent="Text"]
+[node name="Textbox" type="TextEdit" parent="TEXT_TAB_LABEL"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 494.0
-margin_bottom = 466.0
-[connection signal="pressed" from="File/MarginContainer/VBoxContainer/HBoxContainer/BrowseButton" to="." method="_on_BrowseButton_pressed"]
+margin_right = 1006.0
+margin_bottom = 554.0
+[connection signal="pressed" from="FILE_TAB_LABEL/MarginContainer/VBoxContainer/HBoxContainer/BrowseButton" to="." method="_on_BrowseButton_pressed"]

@@ -1,0 +1,11 @@
+﻿keys;en;fr
+LANGUAGE_LABEL;Language:;Langue:
+THEME_LABEL;Theme:;Theme:
+FILE_TAB_LABEL;File;Fichier
+TEXT_TAB_LABEL;Text;Texte
+BROWSE_BUTTON;Browse…;Parcourir…
+FILEPATH_HINT;Filepath;Chemin
+DOUBLE_APOSTROPHES;Double apostrophes in input values;Doubler les apostrophes dans les entrees
+IGNORE_LINE;Ignore line 1 (Titles);Ignorer la premiere ligne (Titres)
+CSV_SEPARATOR;CSV separator:;Separateur CSV:
+PROCESS_BUTTON;Process ->;Genérer ->

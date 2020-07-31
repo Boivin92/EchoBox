@@ -1,6 +1,6 @@
 extends TabContainer
 
-onready var tree : Tree = $File/MarginContainer/VBoxContainer/Tree
+onready var tree : Tree = $FILE_TAB_LABEL/MarginContainer/VBoxContainer/Tree
 var separator = ","
 
 var file_content_as_array
@@ -15,8 +15,8 @@ func get_csv_in_use():
 		return file_content_as_array
 	if current_tab == 1:
 		var lines = []
-		for line in $Text/Textbox.get_line_count():
-			lines.append($Text/Textbox.get_line(line).split(separator, true))
+		for line in $TEXT_TAB_LABEL/Textbox.get_line_count():
+			lines.append($TEXT_TAB_LABEL/Textbox.get_line(line).split(separator, true))
 		return lines
 
 func expose_csv(csv : Array):
@@ -32,7 +32,7 @@ func expose_csv(csv : Array):
 
 func _on_FileDialog_file_selected(path):
 	expose_csv(get_lines_from_file(path))
-	$File/MarginContainer/VBoxContainer/HBoxContainer/FileNameLabel.text = path
+	$FILE_TAB_LABEL/MarginContainer/VBoxContainer/HBoxContainer/FileNameLabel.text = path
 
 func get_lines_from_file(path):
 	var file = File.new()

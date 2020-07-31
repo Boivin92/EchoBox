@@ -14,13 +14,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 6.0
-margin_top = 4.0
-margin_right = 506.0
-margin_bottom = 508.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_constants/margin_right = 10
-custom_constants/margin_top = 30
+custom_constants/margin_top = 50
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 __meta__ = {
@@ -29,82 +34,82 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HSplitContainer" parent="MarginContainer"]
 margin_left = 10.0
-margin_top = 30.0
-margin_right = 490.0
-margin_bottom = 494.0
+margin_top = 50.0
+margin_right = 1014.0
+margin_bottom = 590.0
 custom_constants/separation = 20
 
 [node name="LeftColumn" type="VSplitContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 393.0
-margin_bottom = 464.0
+margin_right = 492.0
+margin_bottom = 540.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
 [node name="SqlTemplatesTabs" parent="MarginContainer/HBoxContainer/LeftColumn" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 393.0
-margin_bottom = 227.0
+margin_right = 492.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn"]
-margin_top = 237.0
-margin_right = 393.0
-margin_bottom = 464.0
+margin_top = 275.0
+margin_right = 492.0
+margin_bottom = 540.0
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="CsvMethod" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 393.0
-margin_bottom = 131.0
+margin_right = 492.0
+margin_bottom = 170.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="OptionsContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer"]
-margin_top = 141.0
-margin_right = 393.0
-margin_bottom = 193.0
+margin_top = 180.0
+margin_right = 492.0
+margin_bottom = 232.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer"]
-margin_right = 236.0
+margin_right = 169.0
 margin_bottom = 52.0
 
 [node name="DoubleApostrophes" type="CheckBox" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer"]
-margin_right = 236.0
+margin_right = 169.0
 margin_bottom = 24.0
 pressed = true
-text = "Double apostrophes in input values"
+text = "DOUBLE_APOSTROPHES"
 
 [node name="IgnoreTitles" type="CheckBox" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer"]
 margin_top = 28.0
-margin_right = 236.0
+margin_right = 169.0
 margin_bottom = 52.0
 pressed = true
-text = "Ignore line 1 (Titles)"
+text = "IGNORE_LINE"
 
 [node name="CsvSeparator" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer"]
-margin_left = 240.0
-margin_right = 393.0
-margin_bottom = 24.0
+margin_left = 173.0
+margin_right = 492.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 alignment = 2
 
 [node name="SeparatorLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator"]
-margin_right = 101.0
-margin_bottom = 24.0
+margin_right = 267.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
-text = "CSV separator: "
+text = "CSV_SEPARATOR"
 align = 2
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator"]
-margin_left = 105.0
-margin_right = 153.0
-margin_bottom = 24.0
+margin_left = 271.0
+margin_right = 319.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.1
@@ -116,29 +121,29 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="ProcessButton" type="Button" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer"]
-margin_left = 318.0
-margin_top = 203.0
-margin_right = 393.0
-margin_bottom = 227.0
+margin_left = 371.0
+margin_top = 242.0
+margin_right = 492.0
+margin_bottom = 265.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-text = "Process ->"
+text = "PROCESS_BUTTON"
 
 [node name="GeneratedSqlTabs" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 413.0
-margin_right = 480.0
-margin_bottom = 464.0
+margin_left = 512.0
+margin_right = 1004.0
+margin_bottom = 540.0
 size_flags_horizontal = 3
 
 [node name="Header" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus" index="0"]
-margin_right = 67.0
-margin_bottom = 26.0
+margin_right = 492.0
+margin_bottom = 25.0
 
 [node name="Tabs" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus/Header" index="0"]
-margin_right = 67.0
-margin_bottom = 26.0
+margin_right = 492.0
+margin_bottom = 25.0
 
 [node name="AddButton" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus/Header" index="1"]
 visible = false
@@ -146,12 +151,12 @@ margin_left = 472.0
 margin_right = 492.0
 
 [node name="Container" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus" index="1"]
-margin_top = 25.0
-margin_right = 67.0
-margin_bottom = 464.0
+margin_top = 24.0
+margin_right = 492.0
+margin_bottom = 540.0
 
 [node name="HBoxContainer2" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/ConfirmationDialog" index="3"]
-margin_bottom = -40.0
+margin_bottom = -39.0
 
 [node name="LineEdit" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/ConfirmationDialog/HBoxContainer2" index="1"]
 caret_blink = true
@@ -195,25 +200,91 @@ dialog_text = "To the left are your inputs, in order:
 To the right are your outputs."
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_left = 6.0
-margin_top = 4.0
-margin_right = 506.0
-margin_bottom = 28.0
+anchor_right = 1.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 24.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Language" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 465.0
+margin_right = 672.0
+margin_bottom = 23.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Language"]
+margin_right = 113.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "LANGUAGE_LABEL"
+
+[node name="LanguageOption" type="OptionButton" parent="HBoxContainer/Language"]
+margin_left = 117.0
+margin_right = 207.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 90, 0 )
+text = "English"
+align = 2
+items = [ "English", null, false, 0, null, "Français", null, false, 1, null ]
+selected = 0
+
+[node name="Font" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 676.0
+margin_right = 809.0
+margin_bottom = 23.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Font"]
+margin_right = 35.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Font:"
+
+[node name="FontOption" type="OptionButton" parent="HBoxContainer/Font"]
+margin_left = 39.0
+margin_right = 133.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 90, 0 )
+text = "Expressway"
+align = 2
+items = [ "Expressway", null, false, 0, null, "OpenDyslexic", null, false, 1, null ]
+selected = 0
+
+[node name="Theme" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 813.0
+margin_right = 997.0
+margin_bottom = 23.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Theme"]
+margin_right = 90.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "THEME_LABEL"
+
+[node name="ThemeOption" type="OptionButton" parent="HBoxContainer/Theme"]
+margin_left = 94.0
+margin_right = 184.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 90, 0 )
+text = "Dark"
+align = 2
+items = [ "Dark", null, false, 0, null, "Light", null, false, 1, null ]
+selected = 0
+
 [node name="Button" type="Button" parent="HBoxContainer"]
-margin_left = 482.0
-margin_right = 500.0
-margin_bottom = 24.0
+margin_left = 1001.0
+margin_right = 1019.0
+margin_bottom = 23.0
 text = "?"
 [connection signal="tree_exiting" from="." to="." method="_on_MainScreen_tree_exiting"]
 [connection signal="browse" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" to="." method="_on_CsvMethod_browse"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/ProcessButton" to="." method="_on_ProcessButton_pressed"]
 [connection signal="file_selected" from="FileDialog" to="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" method="_on_FileDialog_file_selected"]
+[connection signal="item_selected" from="HBoxContainer/Language/LanguageOption" to="." method="_on_LanguageOption_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/Font/FontOption" to="." method="_on_FontOption_item_selected"]
+[connection signal="item_selected" from="HBoxContainer/Theme/ThemeOption" to="." method="_on_ThemeOption_item_selected"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_Button_pressed"]
 
 [editable path="MarginContainer/HBoxContainer/GeneratedSqlTabs"]
