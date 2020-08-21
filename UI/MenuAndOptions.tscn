@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/MenuAndOptions.gd" type="Script" id=1]
+
+[node name="MenuAndOptions" type="HBoxContainer"]
+anchor_right = 1.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 24.0
+custom_constants/separation = 30
+alignment = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Language" type="HBoxContainer" parent="."]
+margin_left = 398.0
+margin_right = 609.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="Language"]
+margin_top = 3.0
+margin_right = 117.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "LANGUAGE_LABEL"
+
+[node name="LanguageOption" type="OptionButton" parent="Language"]
+margin_left = 121.0
+margin_right = 211.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 0 )
+text = "English"
+align = 2
+items = [ "English", null, false, 0, null, "Français", null, false, 1, null ]
+selected = 0
+
+[node name="Font" type="HBoxContainer" parent="."]
+margin_left = 639.0
+margin_right = 777.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="Font"]
+margin_top = 3.0
+margin_right = 32.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Font:"
+
+[node name="FontOption" type="OptionButton" parent="Font"]
+margin_left = 36.0
+margin_right = 138.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 0 )
+text = "Expressway"
+align = 2
+items = [ "Expressway", null, false, 0, null, "OpenDyslexic", null, false, 1, null ]
+selected = 0
+
+[node name="Theme" type="HBoxContainer" parent="."]
+margin_left = 807.0
+margin_right = 989.0
+margin_bottom = 20.0
+
+[node name="Label" type="Label" parent="Theme"]
+margin_top = 3.0
+margin_right = 88.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "THEME_LABEL"
+
+[node name="ThemeOption" type="OptionButton" parent="Theme"]
+margin_left = 92.0
+margin_right = 182.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 0 )
+text = "Dark"
+align = 2
+items = [ "Dark", null, false, 0, null, "Light", null, false, 1, null ]
+selected = 0
+
+[node name="Padding" type="Control" parent="."]
+margin_left = 1019.0
+margin_right = 1019.0
+margin_bottom = 20.0
+[connection signal="tree_exiting" from="." to="." method="_on_MenuAndOptions_tree_exiting"]
+[connection signal="item_selected" from="Language/LanguageOption" to="." method="_on_LanguageOption_item_selected"]
+[connection signal="item_selected" from="Font/FontOption" to="." method="_on_FontOption_item_selected"]
+[connection signal="item_selected" from="Theme/ThemeOption" to="." method="_on_ThemeOption_item_selected"]

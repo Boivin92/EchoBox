@@ -4,8 +4,6 @@ const save_path = "user://last_session.json"
 const user_prefs = "user://user_prefs.json"
 
 var prefs = {}
-var themes = ["res://UI/Themes/Solarized_dark_complete.tres", "res://UI/Themes/Solarized_light_complete.tres"]
-var fonts = ["res://font/expressway.tres", "res://font/open_dislexia.tres"]
 
 onready var csvMethod = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod
 onready var templateTabs = $MarginContainer/HBoxContainer/LeftColumn/SqlTemplatesTabs
@@ -13,9 +11,7 @@ onready var generatedTabs = $MarginContainer/HBoxContainer/GeneratedSqlTabs
 onready var separatorLineEdit = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator/LineEdit
 onready var optionIgnore = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer/IgnoreTitles
 onready var optionDouble = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer/DoubleApostrophes
-onready var languageSelecter = $HBoxContainer/Language/LanguageOption
-onready var themeSelector = $HBoxContainer/Theme/ThemeOption
-onready var fontSelector = $HBoxContainer/Font/FontOption
+
 
 func _ready():
 	load_from_files()
@@ -29,10 +25,7 @@ func save_prefs():
 			"double_apostrophes" : optionDouble.pressed, 
 			"ignore_title" : optionIgnore.pressed, 
 			"csv_separator" : separatorLineEdit.text,
-			"csv_method" : csvMethod.current_tab,
-			"language" : languageSelecter.selected,
-			"theme" : themeSelector.selected,
-			"font" : fontSelector.selected
+			"csv_method" : csvMethod.current_tab
 		}
 	var save = File.new()
 	save.open(user_prefs, File.WRITE)
@@ -59,17 +52,6 @@ func load_prefs():
 	optionIgnore.pressed = prefs["ignore_title"]
 	separatorLineEdit.text = prefs["csv_separator"]
 	csvMethod.current_tab = prefs["csv_method"]
-	
-	if prefs.has("language"):
-		languageSelecter.select(prefs["language"])
-		_on_LanguageOption_item_selected(languageSelecter.selected)
-	
-	if prefs.has("font"):
-		fontSelector.select(prefs["font"])
-	
-	if prefs.has("theme"):
-		themeSelector.select(prefs["theme"])
-	_on_ThemeOption_item_selected(themeSelector.selected)
 		
 
 func load_last_session():
@@ -107,10 +89,8 @@ func _on_LineEdit_text_changed(new_text):
 	else:
 		separatorLineEdit.text = ","
 
-
 func _on_CsvMethod_browse():
 	$FileDialog.show()
-
 
 func _on_ProcessButton_pressed():
 	var template = templateTabs.get_current_text()
@@ -134,23 +114,3 @@ func _on_ProcessButton_pressed():
 	output.strip_edges(false, true)
 	generatedTabs.create_new_tab(templateTabs.get_current_tab_name())
 	generatedTabs.set_text(generatedTabs.current_tab(), output)
-
-
-func _on_Button_pressed():
-	$AcceptDialog.show()
-
-func _on_ThemeOption_item_selected(index):
-	theme = load(themes[index])
-	set_font(fontSelector.selected)
-
-func set_font(index):
-	theme.set_default_font(load(fonts[index]))
-
-func _on_LanguageOption_item_selected(index):
-	if index == 0:
-		TranslationServer.set_locale("en")
-	if index == 1:
-		TranslationServer.set_locale("fr")
-
-func _on_FontOption_item_selected(index):
-	set_font(index)

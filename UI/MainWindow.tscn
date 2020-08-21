@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/MainScreen.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/MenuAndOptions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Themes/Solarized_dark_complete.tres" type="Theme" id=3]
+[ext_resource path="res://UI/MainWindow.gd" type="Script" id=4]
+
+[node name="MainWindow" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuAndOptions" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 1024.0
+margin_bottom = 31.0
+
+[node name="MainScreen" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+[connection signal="font_changed" from="VBoxContainer/MenuAndOptions" to="." method="_on_MenuAndOptions_font_changed"]
+[connection signal="theme_changed" from="VBoxContainer/MenuAndOptions" to="." method="_on_MenuAndOptions_theme_changed"]

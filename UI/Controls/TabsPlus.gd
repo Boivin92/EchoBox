@@ -1,7 +1,5 @@
 extends Control
 
-export (PackedScene) var default_tab_container : PackedScene
-
 onready var NameDialog = $ConfirmationDialog
 onready var NameLineEdit = $ConfirmationDialog/HBoxContainer2/LineEdit
 onready var TabsHeader = $TabsPlus/Header/Tabs
@@ -40,17 +38,14 @@ func _on_AddButton_pressed():
 	NameDialog.show()
 	NameLineEdit.grab_focus()
 
-
 func _on_Tabs_tab_changed(tab):
 	container.current_tab = tab
 	container.get_child(tab).grab_focus()
-
 
 func _on_Tabs_tab_close(tab):
 	TabsHeader.remove_tab(tab)
 	container.remove_child(container.get_child(tab))
 	container.current_tab = TabsHeader.current_tab
-
 
 func _on_ConfirmationDialog_confirmed():
 	if NameLineEdit.text != "":
@@ -65,9 +60,6 @@ func create_new_tab(tab_name, text = ""):
 	container.get_child(container.current_tab).grab_focus()
 
 func build_container(text = ""):
-	if not default_tab_container:
-		var TE = TextEdit.new()
-		TE.text = text
-		return TE
-	else:
-		return default_tab_container.instance()
+	var TE = TextEdit.new()
+	TE.text = text
+	return TE

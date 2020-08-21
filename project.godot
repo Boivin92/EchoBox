@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sequelize"
-run/main_scene="res://UI/MainScreen.tscn"
+run/main_scene="res://UI/MainWindow.tscn"
 boot_splash/image="res://Assets/files.png"
 config/icon="res://Assets/files.png"
 
