@@ -33,8 +33,9 @@ func set_text(tab, text):
 
 func _on_AddButton_pressed():
 	NameLineEdit.clear()
-	NameLineEdit.text = "New SQL template"
+	NameLineEdit.text = tr("NEW_TAB_TITLE")
 	NameLineEdit.select_all()
+	NameDialog.get_cancel().text = tr("Cancel")
 	NameDialog.show()
 	NameLineEdit.grab_focus()
 

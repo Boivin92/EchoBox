@@ -19,10 +19,20 @@ config/name="Sequelize"
 run/main_scene="res://UI/MainWindow.tscn"
 boot_splash/image="res://Assets/files.png"
 config/icon="res://Assets/files.png"
+config/windows_native_icon="res://Assets/files.ico"
+
+[input]
+
+ui_delete={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777224,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [locale]
 
-translations=PoolStringArray( "res://i18n/texts.en.translation", "res://i18n/texts.fr.translation" )
+translations=PoolStringArray( "res://i18n/texts.en.translation", "res://i18n/texts.fr.translation", "res://i18n/editorTranslations/en.po", "res://i18n/editorTranslations/fr.po" )
+locale_filter=[ 0, [  ] ]
 
 [rendering]
 

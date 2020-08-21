@@ -1,6 +1,6 @@
 ﻿keys;en;fr
 LANGUAGE_LABEL;Language:;Langue:
-THEME_LABEL;Theme:;Theme:
+THEME_LABEL;Theme:;Thème:
 FILE_TAB_LABEL;File;Fichier
 TEXT_TAB_LABEL;Text;Texte
 BROWSE_BUTTON;Browse…;Parcourir…
@@ -9,3 +9,9 @@ DOUBLE_APOSTROPHES;Double apostrophes in input values;Doubler les apostrophes da
 IGNORE_LINE;Ignore line 1 (Titles);Ignorer la premiere ligne (Titres)
 CSV_SEPARATOR;CSV separator:;Separateur CSV:
 PROCESS_BUTTON;Process ->;Genérer ->
+NEW_TAB_TITLE;New Template;Nouveau modèle
+TITLE;Title:;Titre
+Cancel;Cancel;Annuler
+ERROR_TITLE;Error;Erreur
+NAME_CANNOT_BE_EMPTY_MESSAGE;Name of template cannot be empty;Le nom du modèle ne peut être vide
+LINES_OUTPUT_LABEL;Lines between instances;Lignes entre chaque instance

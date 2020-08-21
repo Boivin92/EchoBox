@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/Controls/CsvMethod.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Controls/TabsPlus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/MainScreen.gd" type="Script" id=3]
+[ext_resource path="res://UI/Dialogs/FileDialog.tscn" type="PackedScene" id=4]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
@@ -89,15 +90,20 @@ margin_bottom = 52.0
 pressed = true
 text = "IGNORE_LINE"
 
-[node name="CsvSeparator" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer"]
 margin_left = 185.0
 margin_right = 492.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="CsvSeparator" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2"]
+margin_right = 307.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 alignment = 2
 
-[node name="SeparatorLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator"]
+[node name="SeparatorLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator"]
 margin_top = 5.0
 margin_right = 245.0
 margin_bottom = 19.0
@@ -105,7 +111,7 @@ size_flags_horizontal = 3
 text = "CSV_SEPARATOR"
 align = 2
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator"]
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator"]
 margin_left = 249.0
 margin_right = 307.0
 margin_bottom = 24.0
@@ -118,6 +124,28 @@ max_length = 1
 placeholder_text = ","
 caret_blink = true
 caret_blink_speed = 0.5
+
+[node name="OutputLines" type="HBoxContainer" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 307.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 2
+
+[node name="NumberOfLinesLabel" type="Label" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/OutputLines"]
+margin_top = 5.0
+margin_right = 229.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "LINES_OUTPUT_LABEL"
+align = 2
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/OutputLines"]
+margin_left = 233.0
+margin_right = 307.0
+margin_bottom = 24.0
+value = 1.0
 
 [node name="ProcessButton" type="Button" parent="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer"]
 margin_left = 364.0
@@ -156,29 +184,10 @@ margin_bottom = 580.0
 caret_blink = true
 caret_blink_speed = 0.5
 
-[node name="FileDialog" type="FileDialog" parent="."]
-visible = true
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -337.5
-margin_top = -165.059
-margin_right = 337.5
-margin_bottom = 162.941
-window_title = "Open a File"
-mode = 0
-access = 2
-filters = PoolStringArray( "*.csv" )
-current_dir = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql"
-current_path = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql/"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="FileDialog" parent="." instance=ExtResource( 4 )]
 [connection signal="tree_exiting" from="." to="." method="_on_MainScreen_tree_exiting"]
 [connection signal="browse" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" to="." method="_on_CsvMethod_browse"]
-[connection signal="text_changed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/ProcessButton" to="." method="_on_ProcessButton_pressed"]
-[connection signal="file_selected" from="FileDialog" to="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" method="_on_FileDialog_file_selected"]
 
 [editable path="MarginContainer/HBoxContainer/GeneratedSqlTabs"]

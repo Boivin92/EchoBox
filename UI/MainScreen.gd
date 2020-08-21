@@ -8,7 +8,8 @@ var prefs = {}
 onready var csvMethod = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod
 onready var templateTabs = $MarginContainer/HBoxContainer/LeftColumn/SqlTemplatesTabs
 onready var generatedTabs = $MarginContainer/HBoxContainer/GeneratedSqlTabs
-onready var separatorLineEdit = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/CsvSeparator/LineEdit
+onready var separatorLineEdit = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator/LineEdit
+onready var outputLinesSpinBox = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/OutputLines/SpinBox
 onready var optionIgnore = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer/IgnoreTitles
 onready var optionDouble = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer/DoubleApostrophes
 
@@ -25,7 +26,8 @@ func save_prefs():
 			"double_apostrophes" : optionDouble.pressed, 
 			"ignore_title" : optionIgnore.pressed, 
 			"csv_separator" : separatorLineEdit.text,
-			"csv_method" : csvMethod.current_tab
+			"csv_method" : csvMethod.current_tab,
+			"output_lines" : outputLinesSpinBox.value
 		}
 	var save = File.new()
 	save.open(user_prefs, File.WRITE)
@@ -52,6 +54,7 @@ func load_prefs():
 	optionIgnore.pressed = prefs["ignore_title"]
 	separatorLineEdit.text = prefs["csv_separator"]
 	csvMethod.current_tab = prefs["csv_method"]
+	outputLinesSpinBox.value = prefs["output_lines"]
 		
 
 func load_last_session():
@@ -90,7 +93,10 @@ func _on_LineEdit_text_changed(new_text):
 		separatorLineEdit.text = ","
 
 func _on_CsvMethod_browse():
-	$FileDialog.show()
+	var fileDialog = load("res://UI/Dialogs/FileDialog.tscn").instance()
+	fileDialog.initialize(csvMethod, "_on_FileDialog_file_selected")
+	add_child(fileDialog)
+	fileDialog.show()
 
 func _on_ProcessButton_pressed():
 	var template = templateTabs.get_current_text()
@@ -110,7 +116,9 @@ func _on_ProcessButton_pressed():
 				dict[str(column)] = line[column].replace("'", "''")
 			else:
 				dict[str(column)] = line[column]
-		output += template.format(dict) + "\n\n"
+		output += template.format(dict)
+		for i in outputLinesSpinBox.value:
+			output += "\n"
 	output.strip_edges(false, true)
 	generatedTabs.create_new_tab(templateTabs.get_current_tab_name())
 	generatedTabs.set_text(generatedTabs.current_tab(), output)

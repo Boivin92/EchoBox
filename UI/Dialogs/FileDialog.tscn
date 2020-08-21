@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Dialogs/FileDialog.gd" type="Script" id=1]
+
+[node name="FileDialog" type="FileDialog"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -337.5
+margin_top = -165.059
+margin_right = 337.5
+margin_bottom = 162.941
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.csv" )
+current_dir = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql"
+current_path = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql/"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="hide" from="." to="." method="_on_FileDialog_hide"]
