@@ -157,14 +157,15 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="FileDialog" type="FileDialog" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -337.5
-margin_top = -164.0
+margin_top = -165.059
 margin_right = 337.5
-margin_bottom = 164.0
+margin_bottom = 162.941
 window_title = "Open a File"
 mode = 0
 access = 2
