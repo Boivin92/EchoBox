@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Controls/CsvMethod.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Controls/TabsPlus.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/MainScreen.gd" type="Script" id=3]
 [ext_resource path="res://UI/Dialogs/FileDialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/OutputWindow.gd" type="Script" id=5]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
@@ -156,38 +157,17 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "PROCESS_BUTTON"
 
-[node name="GeneratedSqlTabs" parent="MarginContainer/HBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="OutputWindow" type="TabContainer" parent="MarginContainer/HBoxContainer"]
 margin_left = 512.0
 margin_right = 1004.0
 margin_bottom = 580.0
-rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
-
-[node name="Header" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus" index="0"]
-margin_right = 492.0
-
-[node name="Tabs" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus/Header" index="0"]
-margin_right = 492.0
-
-[node name="AddButton" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus/Header" index="1"]
-visible = false
-margin_left = 472.0
-margin_right = 492.0
-
-[node name="Container" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/TabsPlus" index="1"]
-margin_right = 492.0
-margin_bottom = 580.0
-
-[node name="LineEdit" parent="MarginContainer/HBoxContainer/GeneratedSqlTabs/ConfirmationDialog/HBoxContainer2" index="1"]
-caret_blink = true
-caret_blink_speed = 0.5
+tab_align = 0
+drag_to_rearrange_enabled = true
+script = ExtResource( 5 )
 
 [node name="FileDialog" parent="." instance=ExtResource( 4 )]
 [connection signal="tree_exiting" from="." to="." method="_on_MainScreen_tree_exiting"]
 [connection signal="browse" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" to="." method="_on_CsvMethod_browse"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/ProcessButton" to="." method="_on_ProcessButton_pressed"]
-
-[editable path="MarginContainer/HBoxContainer/GeneratedSqlTabs"]
