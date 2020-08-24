@@ -96,7 +96,12 @@ func _on_CsvMethod_browse():
 	var fileDialog = load("res://UI/Dialogs/FileDialog.tscn").instance()
 	fileDialog.initialize(csvMethod, "_on_FileDialog_file_selected")
 	add_child(fileDialog)
+	if csvMethod.current_file():
+		fileDialog.current_dir = csvMethod.current_file()
+		fileDialog.current_file = csvMethod.current_file()
+		fileDialog.current_path = csvMethod.current_file()
 	fileDialog.show()
+	fileDialog.invalidate()
 
 func _on_ProcessButton_pressed():
 	var template = templateTabs.get_current_text()

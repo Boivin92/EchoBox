@@ -15,8 +15,8 @@ window_title = "Open a File"
 mode = 0
 access = 2
 filters = PoolStringArray( "*.csv" )
-current_dir = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql"
-current_path = "/Users/boivi/Desktop/GameDev/projects/Apps/CsvToSql/"
+current_dir = "/Users/Public"
+current_path = "/Users/Public/"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

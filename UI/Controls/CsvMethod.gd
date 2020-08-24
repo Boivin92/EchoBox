@@ -24,13 +24,14 @@ func get_csv_in_use():
 
 func expose_csv(csv : Array):
 	tree.clear()
-	tree.columns = csv[0].size()
-	var root = tree.create_item()
-	tree.hide_root = true
-	for line in csv:
-		var new_line = tree.create_item(root)
-		for column in line.size():
-			new_line.set_text(column, line[column])
+	if csv:
+		tree.columns = csv[0].size()
+		var root = tree.create_item()
+		tree.hide_root = true
+		for line in csv:
+			var new_line = tree.create_item(root)
+			for column in line.size():
+				new_line.set_text(column, line[column])
 
 
 func _on_FileDialog_file_selected(path):
@@ -57,11 +58,13 @@ func _on_BrowseButton_pressed():
 func _on_CsvMethod_tree_exiting():
 	save_inputs()
 
+func current_file():
+	return file_path_label.text
+
 func save_inputs():
 	var inputs = {
 		"file" : {
-			"selected_file" : file_path_label.text,
-			"data" : file_content_as_array
+			"selected_file" : file_path_label.text
 			},
 		"raw_text" : raw_text_input.text
 	}
@@ -79,8 +82,8 @@ func load_inputs():
 	var data = parse_json(content)
 	if data:
 		if data.file.selected_file && file.file_exists(data.file.selected_file):
-			expose_csv(data.file.data)
 			file_path_label.text = data.file.selected_file
+			_on_FileDialog_file_selected(data.file.selected_file)
 		if data.raw_text:
 			raw_text_input.text = data.raw_text
 	file.close()
