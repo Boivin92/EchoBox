@@ -156,15 +156,36 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "PROCESS_BUTTON"
 
-[node name="OutputWindow" type="TabContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 margin_left = 512.0
 margin_right = 1004.0
 margin_bottom = 580.0
 size_flags_horizontal = 3
+
+[node name="OutputWindow" type="TabContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 492.0
+margin_bottom = 556.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 tab_align = 0
 drag_to_rearrange_enabled = true
 script = ExtResource( 5 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 560.0
+margin_right = 492.0
+margin_bottom = 580.0
+alignment = 2
+
+[node name="CopyButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 405.0
+margin_right = 492.0
+margin_bottom = 20.0
+text = "CLIPBOARD"
+align = 0
 [connection signal="tree_exiting" from="." to="." method="_on_MainScreen_tree_exiting"]
 [connection signal="browse" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod" to="." method="_on_CsvMethod_browse"]
 [connection signal="text_changed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator/LineEdit" to="." method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/ProcessButton" to="." method="_on_ProcessButton_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/CopyButton" to="MarginContainer/HBoxContainer/VBoxContainer/OutputWindow" method="_on_CopyButton_pressed"]

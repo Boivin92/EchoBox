@@ -15,3 +15,5 @@ Cancel;Cancel;Annuler
 ERROR_TITLE;Error;Erreur
 NAME_CANNOT_BE_EMPTY_MESSAGE;Name of template cannot be empty;Le nom du modèle ne peut être vide
 LINES_OUTPUT_LABEL;Lines between instances;Lignes entre chaque instance
+CLIPBOARD;Copy to Clipboard;Copier dans le presse-papier
+DELETE;Close current tab;Fermer onglet courant

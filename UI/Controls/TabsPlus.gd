@@ -28,7 +28,7 @@ func current_tab():
 func set_current_tab(tab):
 	TabsHeader.current_tab = tab
 
-func set_text(tab, text):
+func set_text(_tab, text):
 	container.get_child(container.current_tab).text = text
 
 func _on_AddButton_pressed():
