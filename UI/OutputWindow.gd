@@ -41,6 +41,6 @@ func _on_CopyButton_pressed():
 	if get_child(current_tab):
 		OS.set_clipboard(get_child(current_tab).text)
 
-func _input(event):
-	if event.is_action_pressed("ui_close_tab"):
-		remove_child(get_child(current_tab))
+#func _input(event):
+#	if event.is_action_pressed("ui_close_tab"):
+#		remove_child(get_child(current_tab))
