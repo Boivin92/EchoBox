@@ -19,7 +19,7 @@ config/name="Sequelize"
 run/main_scene="res://UI/MainWindow.tscn"
 boot_splash/image="res://Assets/files.png"
 config/icon="res://Assets/files.png"
-config/windows_native_icon="res://Assets/files.ico"
+config/windows_native_icon="res://Assets/sequelize.ico"
 
 [input]
 

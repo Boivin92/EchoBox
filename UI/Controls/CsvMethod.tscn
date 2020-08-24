@@ -80,4 +80,5 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 1006.0
 margin_bottom = 554.0
+[connection signal="tree_exiting" from="." to="." method="_on_CsvMethod_tree_exiting"]
 [connection signal="pressed" from="FILE_TAB_LABEL/MarginContainer/VBoxContainer/HBoxContainer/BrowseButton" to="." method="_on_BrowseButton_pressed"]
