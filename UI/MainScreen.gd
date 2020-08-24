@@ -6,7 +6,7 @@ const user_prefs = "user://user_prefs.json"
 var prefs = {}
 
 onready var csvMethod = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/CsvMethod
-onready var templateTabs = $MarginContainer/HBoxContainer/LeftColumn/SqlTemplatesTabs
+onready var templateTabs = $MarginContainer/HBoxContainer/LeftColumn/TemplatesTabs
 onready var generatedTabs = $MarginContainer/HBoxContainer/OutputWindow
 onready var separatorLineEdit = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/CsvSeparator/LineEdit
 onready var outputLinesSpinBox = $MarginContainer/HBoxContainer/LeftColumn/VBoxContainer/OptionsContainer/VBoxContainer2/OutputLines/SpinBox

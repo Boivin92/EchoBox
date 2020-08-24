@@ -44,7 +44,7 @@ margin_bottom = 580.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
-[node name="SqlTemplatesTabs" parent="MarginContainer/HBoxContainer/LeftColumn" instance=ExtResource( 2 )]
+[node name="TemplatesTabs" parent="MarginContainer/HBoxContainer/LeftColumn" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 492.0
