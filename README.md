@@ -1,4 +1,4 @@
-# Sequelize
+# Echo Box
 
 A tool to parse CSV data into templates.
 
